@@ -1,15 +1,5 @@
-# MMM-Template
-Use this template for creating new MagicMirror² modules.
-
-See the [wiki page](https://github.com/Dennis-Rosenbaum/MMM-Template/wiki) for an in depth overview of how to get started.
-
-# MMM-Template
-
-*MMM-Template* is a module for [MagicMirror²](https://github.com/MagicMirrorOrg/MagicMirror) that displays ... [Module description]
-
-## Screenshot
-
-![Example of MMM-Template](./example_1.png)
+# MMM-GeminiLive
+Yes, I used the template. No, I don't care.
 
 ## Installation
 
@@ -19,7 +9,7 @@ In your terminal, go to the modules directory and clone the repository:
 
 ```bash
 cd ~/MagicMirror/modules
-git clone [GitHub url]
+git clone https://github.com/benfoster04/MMM-GeminiLive.git
 ```
 
 ### Update
@@ -27,7 +17,7 @@ git clone [GitHub url]
 Go to the module directory and pull the latest changes:
 
 ```bash
-cd ~/MagicMirror/modules/MMM-Template
+cd ~/MagicMirror/modules/MMM-GeminiLive
 git pull
 ```
 
@@ -35,51 +25,20 @@ git pull
 
 To use this module, you have to add a configuration object to the modules array in the `config/config.js` file.
 
-### Example configuration
-
-Minimal configuration to use the module:
-
-```js
-    {
-        module: 'MMM-Template',
-        position: 'lower_third'
-    },
-```
-
-Configuration with all options:
-
-```js
-    {
-        module: 'MMM-Template',
-        position: 'lower_third',
-        config: {
-            exampleContent: 'Welcome world'
-        }
-    },
-```
 
 ### Configuration options
 
-Option|Possible values|Default|Description
+Option|Data Type|Default|Description
 ------|------|------|-----------
-`exampleContent`|`string`|not available|The content to show on the page
-
-## Sending notifications to the module
-
-Notification|Description
-------|-----------
-`TEMPLATE_RANDOM_TEXT`|Payload must contain the text that needs to be shown on this module
-
-## Developer commands
-
-- `npm install` - Install devDependencies like ESLint.
-- `node --run lint` - Run linting and formatter checks.
-- `node --run lint:fix` - Fix linting and formatter issues.
+`apiKey`|`string`|n/a|Your Gemini API Key
+`grounding`|`bool`|`false`|Ground responses with Google Search
+`functions`|`array`|`[]`|Function calling - Define functions that Gemini can call. [Learn more](https://aistudio.google.com/docs/function-calling)
+`mediaResolution`|`string`|`"low"`|Media resolution: `"low"`, `"medium"`... [Learn more](https://aistudio.google.com/docs/media-resolution)
+`"voiceName"`|`string`|`"Zephyr"`|Pre-built voice model to use [Learn more](https://aistudio.google.com/docs/speech-generation#prebuilt-voices)
+`"maxContextSize"`|`int`|`104857`|Maximum number of tokens accumulated before sliding the context window
+`"targetContextSize"`|`int`|`52428`|Number of tokens kept in context after sliding the context window
+`"instruction"`|`string`|n/a|Optional - A set of instructions passed to the model to define tone and style in its response.
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
-
-## Changelog
-
-All notable changes to this project will be documented in the [CHANGELOG.md](CHANGELOG.md) file.
